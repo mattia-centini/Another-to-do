@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //add list item when pressing enter key
-  textNode.addEventListener("keyup", (event) => {
+  textNode.addEventListener("keyup", event => {
     if (event.keyCode === 13) {
       event.preventDefault();
       document.querySelector(".addBtn").click();
@@ -64,8 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
     //grab the div container
     let item = this.parentNode;
     console.log(item);
-    return item.className === "todo"
-      ? (item.style.display = "none")
-      : console.log("ciao");
+    if (item.className === "todo") {
+      item.classList.add("fall");
+      document.addEventListener("transitionend", () => {
+        item.remove();
+      });
+    }
   }
 });
