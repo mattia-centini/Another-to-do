@@ -54,9 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
     //grab the div container
     let item = this.parentNode;
     console.log(item);
-    return item.className === "todo"
-      ? (item.style.backgroundColor = "green")
-      : console.log("ciao");
+    if (item.className === "todo") {
+      item.classList.add("complete");
+    } else {
+      item.classList.toggle("complete");
+    }
   }
 
   //remove li when pressing trash button
