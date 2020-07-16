@@ -80,5 +80,10 @@ button {
 
 .fall {
   transform: translateY(300px) rotateZ(20deg);
-  opacity: 0;
+  opacity: 0.5;
+}
+
+.complete {
+  background-color: #99ff66;
+  opacity: 0.5;
 }
