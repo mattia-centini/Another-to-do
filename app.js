@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector(".addBtn");
   const textNode = document.getElementById("form");
 
-  // Create a "close" button and append it to each list item
-
   function addList() {
     //CREATING EACH DIV BLOCK containing the added todo text
     const addedTodo = document.createElement("div");
@@ -53,9 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function completeItem() {
     //grab the div container
     let item = this.parentNode;
-    console.log(item);
+
     return item.className === "todo"
-      ? (item.style.backgroundColor = "green")
+      ? (item.style.backgroundColor = "#99ff66")
       : console.log("ciao");
   }
 
@@ -63,9 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function removeItem() {
     //grab the div container
     let item = this.parentNode;
-    console.log(item);
-    return item.className === "todo"
-      ? (item.style.display = "none")
-      : console.log("ciao");
+    if (item.className === "todo") {
+      item.classList.add("fall");
+      item.addEventListener("transitionend", () => {
+        item.remove();
+      });
+    }
   }
 });
